@@ -58,7 +58,7 @@ class MainViewModel @Inject constructor(val dataRepository: DataRepository) : Vi
         getQuestionnaireTime()
     }
 
-    private fun loadItems() {
+    fun loadItems() {
         viewModelScope.launch {
             _items.value = dataRepository.loadItemsFromJson()
         }

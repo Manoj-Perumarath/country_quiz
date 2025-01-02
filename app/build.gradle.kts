@@ -4,7 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
-    id ("kotlin-parcelize")
+    id("kotlin-parcelize")
 
 }
 
@@ -67,8 +67,12 @@ dependencies {
 
     implementation(Dependencies.okHttp)
     implementation(Dependencies.loggingInterceptor)
-    implementation ("io.coil-kt:coil:2.4.0")
-    implementation( "androidx.paging:paging-runtime:3.3.4" )
-    implementation (libs.androidx.datastore.preferences)
+    implementation("io.coil-kt:coil:2.4.0")
+    implementation("androidx.paging:paging-runtime:3.3.4")
+    implementation(libs.androidx.datastore.preferences)
 
+    testImplementation(Dependencies.mock)
+    testImplementation(Dependencies.mockito)
+    testImplementation(Dependencies.coreTesting)
+    testImplementation(Dependencies.coroutineTest)
 }

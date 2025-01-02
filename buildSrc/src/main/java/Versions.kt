@@ -1,4 +1,8 @@
 object Versions {
+    const val mock = "5.5.0"
+    const val mockitoKotlin = "5.0.0"
+    const val coreTest = "2.1.0"
+    const val coroutineTest = "1.7.3"
     const val coreKtx = "1.15.0"
     const val junit = "4.13.2"
     const val junitVersion = "1.2.1"

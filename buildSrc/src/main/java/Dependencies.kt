@@ -30,9 +30,8 @@ object Dependencies {
     val coroutinesAndroid by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}" }
     val coreSplashscreen by lazy { "androidx.core:core-splashscreen:${Versions.coreSplashscreen}" }
     val coilCompose by lazy { "io.coil-kt:coil-compose:${Versions.coilCompose}" }
-
-}
-
-object Modules {
-const val mylibrary = ":mylibrary"
+    val mock by lazy { "org.mockito:mockito-core:${Versions.mock}" }
+    val mockito by lazy { "org.mockito.kotlin:mockito-kotlin:${Versions.mockitoKotlin}" }
+    val coreTesting by lazy { "androidx.arch.core:core-testing:${Versions.coreTest}" }
+    val coroutineTest by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutineTest}" }
 }
