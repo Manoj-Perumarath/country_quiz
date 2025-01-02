@@ -19,88 +19,113 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:paddingTop="@dimen/common_padding"
         tools:context=".ui.screen.QuestionFragment">
 
-        <TextView
-            android:id="@+id/tv_q_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="GUESS THE COUNTRY FROM THE FLAG?"
-            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_q_num"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/bg_question_bubble"
-            android:gravity="center"
-            android:text="@{String.valueOf(viewModel.currentIndex+1)}"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv_q_num"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="@dimen/common_padding"
+                android:background="@drawable/bg_question_bubble"
+                android:gravity="center"
+                android:text="@{String.valueOf(viewModel.currentIndex+1)}"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteY="8dp" />
 
-        <ImageView
-            android:id="@+id/iv_flag"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv_q_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+                android:text="GUESS THE COUNTRY FROM THE FLAG?"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_ae"
-            app:layout_constraintBottom_toBottomOf="@id/btn_opt_three"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_opt_one" />
-
-        <include
-            android:id="@+id/btn_opt_one"
-            layout="@layout/options_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[0].id}"
-            app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[0].country_name}"
-            app:layout_constraintStart_toEndOf="@id/iv_flag"
-            app:layout_constraintTop_toBottomOf="@id/tv_q_name"
-            app:onOptionClick="@{clickHandler}" />
-
-        <include
-            android:id="@+id/btn_opt_three"
-            layout="@layout/options_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[2].id}"
-            app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[2].country_name}"
-            app:layout_constraintStart_toEndOf="@id/iv_flag"
-            app:layout_constraintTop_toBottomOf="@id/btn_opt_one"
-            app:onOptionClick="@{clickHandler}" />
-
-        <include
-            android:id="@+id/btn_opt_two"
-            layout="@layout/options_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[1].id}"
-            app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[1].country_name}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_q_name"
-            app:onOptionClick="@{clickHandler}" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
 
-        <include
-            android:id="@+id/btn_opt_four"
-            layout="@layout/options_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[3].id}"
-            app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[3].country_name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_opt_two"
-            app:onOptionClick="@{clickHandler}" />
+            <ImageView
+                android:id="@+id/iv_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/common_padding"
+                android:background="@color/gray"
+                android:padding="1dp"
+                android:src="@drawable/ic_ae"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_flag"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <include
+                    android:id="@+id/btn_opt_one"
+                    layout="@layout/options_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[0].id}"
+                    app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[0].country_name}"
+                    app:onOptionClick="@{clickHandler}" />
+
+                <include
+                    android:id="@+id/btn_opt_three"
+                    layout="@layout/options_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/double_padding"
+                    app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[2].id}"
+                    app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[2].country_name}"
+                    app:onOptionClick="@{clickHandler}" />
+
+                <include
+                    android:layout_marginTop="@dimen/question_margin_top"
+                    android:id="@+id/btn_opt_two"
+                    layout="@layout/options_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[1].id}"
+                    app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[1].country_name}"
+                    app:onOptionClick="@{clickHandler}" />
+
+                <include
+                    android:layout_marginTop="@dimen/question_margin_top"
+                    android:id="@+id/btn_opt_four"
+                    layout="@layout/options_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/double_padding"
+                    app:countryId="@{viewModel.items.questions[viewModel.currentIndex].countries[3].id}"
+                    app:countryName="@{viewModel.items.questions[viewModel.currentIndex].countries[3].country_name}"
+                    app:onOptionClick="@{clickHandler}" />
+
+            </GridLayout>
+        </RelativeLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

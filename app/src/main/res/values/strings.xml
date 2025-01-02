@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">CountryQuiz</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="challenge_start_in">CHALLENGE WILL START IN</string>
+    <string name="challenge_start_in">CHALLENGE WILL START</string>
+    <string name="in">IN</string>
     <string name="schedule">SCHEDULE</string>
     <string name="save">SAVE</string>
     <string name="correct">CORRECT</string>
     <string name="game_over">Game Over</string>
     <string name="wrong">WRONG</string>
+    <string name="title_main">FLAGS CHALLENGE</string>
+    <string name="score">SCORE</string>
 </resources>

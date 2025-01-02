@@ -6,46 +6,58 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
         tools:context=".ui.activities.MainActivity">
 
-        <TextView
-            android:id="@+id/tv_sec_o"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_timer_grey"
-            android:gravity="center"
-            android:text="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_sec_z"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_timer_grey"
-            android:gravity="center"
-            android:text="0"
-            app:layout_constraintStart_toEndOf="@id/tv_sec_o"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="FLAGS CHALLENGE"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/tv_sec_z"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_primary"
+            android:padding="@dimen/common_padding"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_sec_z"
-            app:layout_constraintTop_toTopOf="@id/tv_sec_z" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".ui.activities.MainActivity">
 
+            <TextView
+                android:id="@+id/tv_sec_o"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_timer_grey"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_sec_z"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/bg_timer_grey"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="0"
+                app:layout_constraintStart_toEndOf="@id/tv_sec_o"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/title_main"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/tv_sec_z"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_sec_o"
+                app:layout_constraintTop_toTopOf="@id/tv_sec_z"
+                app:layout_constraintVertical_bias="0.523" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <fragment
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -53,6 +65,7 @@
             android:layout_height="0dp"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_sec_z" />
+            app:layout_constraintTop_toBottomOf="@id/main2"
+            app:navGraph="@navigation/nav_graph" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

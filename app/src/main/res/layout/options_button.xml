@@ -23,7 +23,6 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_opt"
-            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:background="@drawable/bg_options_default"
