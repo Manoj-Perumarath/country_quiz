@@ -136,8 +136,15 @@ class MainViewModel @Inject constructor(val dataRepository: DataRepository) : Vi
                 1000
             ) {
                 override fun onTick(millisUntilFinished: Long) {
+//                    val seconds = (millisUntilFinished / 1000) % 60
+                    val minutes = millisUntilFinished / 1000 / 60
                     val seconds = (millisUntilFinished / 1000) % 60
-                    _questionTimeLeft.value = String.format(Locale.ENGLISH, "%02d", seconds)
+                    if (minutes < 1) {
+                        _questionTimeLeft.value = String.format(Locale.ENGLISH, "%02d", seconds)
+                    } else {
+                        _questionTimeLeft.value =
+                            String.format(Locale.ENGLISH, "%02d:%02d", minutes, seconds)
+                    }
                 }
 
                 override fun onFinish() {

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.manoj.countryquiz.R
 import com.manoj.countryquiz.databinding.FragmentQuestionBinding
@@ -90,17 +89,13 @@ class QuestionFragment : Fragment() {
         }
 
         mainViewModel.questionTimeLeft.observe(viewLifecycleOwner) { timeLeft ->
-            if (timeLeft == "00") {
+            if (timeLeft == "00" || timeLeft == "00:00") {
                 if (mainViewModel.currentIndex.value!! < 14) {
                     mainViewModel.startAnswerValidatorCounter()
                 } else {
+                    mainViewModel.saveQuestionnaireProgress(false)
                     findNavController().navigate(
-                        R.id.gameOverFragment, NavOptions.Builder()
-                            .setPopUpTo(
-                                R.id.challengeTimerFragment,
-                                true
-                            )
-                            .build()
+                        R.id.gameOverFragment
                     )
                 }
             }

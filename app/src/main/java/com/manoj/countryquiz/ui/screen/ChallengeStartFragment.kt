@@ -42,12 +42,7 @@ class ChallengeStartFragment : Fragment() {
             if (timeLeft.equals("00")) {
                 mainViewModel.saveQuestionTime(arguments?.getLong("questionTime") ?: 20000L)
                 findNavController().navigate(
-                    R.id.challengestart_to_question, NavOptions.Builder()
-                        .setPopUpTo(
-                            R.id.challengeTimerFragment,
-                            true
-                        )
-                        .build()
+                    R.id.challengestart_to_question
                 )
             }
         }

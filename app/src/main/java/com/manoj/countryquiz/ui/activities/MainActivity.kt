@@ -19,10 +19,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         mainViewModel.questionTimeLeft.observe(this) { timeLeft ->
-            binding.tvSecZ.text = timeLeft
-
+            val times = timeLeft.split(":")
+            if (times.size == 1) {
+                binding.tvSecZ.text = times[0]
+            } else {
+                binding.tvSecO.text = times[1]
+            }
         }
     }
 
