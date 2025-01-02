@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/challengeTimerFragment">
+
+    <fragment
+        android:id="@+id/challengeTimerFragment"
+        android:name="com.manoj.countryquiz.ui.screen.ChallengeTimerFragment">
+        <action
+            android:id="@+id/challengeTimer_to_start"
+            app:destination="@id/challengeStartFragment">
+            <argument
+                android:name="questionTime"
+                app:argType="long" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/challengeStartFragment"
+        android:name="com.manoj.countryquiz.ui.screen.ChallengeStartFragment">
+        <action
+            android:id="@+id/challengestart_to_question"
+            app:destination="@id/questionFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.manoj.countryquiz.ui.screen.QuestionFragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.manoj.countryquiz.ui.screen.GameOverFragment" />
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.manoj.countryquiz.ui.screen.QuizScoreFragment" />
+</navigation>
+
